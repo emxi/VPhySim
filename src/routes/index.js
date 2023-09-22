@@ -2,4 +2,35 @@ import HomePage from '../pages/Home';
 
 const publicRoutes = [{ path: '/', component: HomePage }];
 
-export { publicRoutes };
+const simulateRoutes = [
+    {
+        path: 'chuyen-dong-thang-deu',
+        component: HomePage,
+        title: 'Chuyển động thẳng đều',
+        image: '',
+        grade: 10,
+    },
+    {
+        path: 'chuyen-dong-thang-bien-doi-deu',
+        component: HomePage,
+        title: 'Chuyển động thẳng biến đổi đều',
+        image: '',
+        grade: 10,
+    },
+    {
+        path: 'dinh-luat-2-newton',
+        component: HomePage,
+        title: 'Định luật 2 Newton',
+        image: '',
+        grade: 10,
+    },
+    {
+        path: 'khuc-xa-anh-sang',
+        component: HomePage,
+        title: 'Khúc xạ ánh sáng',
+        image: '',
+        grade: 11,
+    },
+];
+
+export { publicRoutes, simulateRoutes };

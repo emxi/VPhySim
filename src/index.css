@@ -9,4 +9,12 @@
     .logo-font {
         font-family: 'Nunito', sans-serif;
     }
+
+    .btn {
+        @apply flex items-center justify-center space-x-2 rounded px-4 py-2 font-medium text-white;
+    }
+
+    .btn.btn-primary {
+        @apply bg-primary-500 hover:bg-primary-600;
+    }
 }
