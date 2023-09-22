@@ -1,11 +1,12 @@
 import HomePage from '../pages/Home';
+import UniformMotion from '../pages/SimulatePages/UniformMotion';
 
 const publicRoutes = [{ path: '/', component: HomePage }];
 
 const simulateRoutes = [
     {
         path: 'chuyen-dong-thang-deu',
-        component: HomePage,
+        component: UniformMotion,
         title: 'Chuyển động thẳng đều',
         image: '',
         grade: 10,

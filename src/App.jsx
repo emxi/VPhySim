@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes, simulateRoutes } from './routes';
 import DefaultLayout from './layouts/DefaultLayout';
+import SimulateLayout from './layouts/SimulateLayout';
 // import { ToastContainer } from 'react-toastify';
 
 export default function App() {
@@ -32,9 +33,9 @@ export default function App() {
                         );
                     })}
 
-                    {publicRoutes.map((route, index) => {
+                    {simulateRoutes.map((route, index) => {
                         const Page = route.component;
-                        let Layout = DefaultLayout;
+                        let Layout = SimulateLayout;
 
                         if (route.layout) {
                             Layout = route.layout;
