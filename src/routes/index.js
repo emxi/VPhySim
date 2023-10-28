@@ -1,5 +1,6 @@
 import HomePage from '../pages/Home';
 import UniformMotion from '../pages/SimulatePages/UniformMotion';
+import TestPage from '../pages/TestPage';
 
 const publicRoutes = [{ path: '/', component: HomePage }];
 
@@ -32,6 +33,7 @@ const simulateRoutes = [
         image: '',
         grade: 11,
     },
+    { path: 'test', component: TestPage, title: 'Test Page', image: '', grade: 10 },
 ];
 
 export { publicRoutes, simulateRoutes };
