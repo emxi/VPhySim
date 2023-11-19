@@ -19,7 +19,7 @@ export default class HAxis {
         this.color = color;
     }
 
-    render(workspace = new WorkSpace(), key = 0) {
+    render(workspace = new WorkSpace({}), key = 0) {
         if (this.hidden) {
             return null;
         }

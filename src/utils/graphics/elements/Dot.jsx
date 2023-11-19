@@ -11,7 +11,7 @@ export default class Dot {
         this.hidden = hidden;
     }
 
-    render(workspace = new WorkSpace(), key = 0) {
+    render(workspace = new WorkSpace({}), key = 0) {
         if (this.hidden) {
             return null;
         }

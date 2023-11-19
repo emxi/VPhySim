@@ -8,6 +8,7 @@ import HAxis from '../utils/graphics/elements/HAxis';
 import { useDimensions } from 'react-dimensions-hook';
 import degToRad from '../utils/degToRad';
 import GraphicWorkSpace from '../components/GraphicWorkSpace';
+import Text from '../utils/graphics/elements/Text';
 
 export default function TestPage() {
     const [angle, setAngle] = useState(0);
@@ -53,6 +54,16 @@ export default function TestPage() {
         y2: vector1.getEndPoint().y,
     });
 
+    const text = new Text({
+        x: 0,
+        y: 0,
+        placementY: 'top',
+        placementX: 'center',
+        color: 'red',
+        buffY: 8,
+        fontSize: 20,
+    });
+
     const hAxis = new HAxis({});
     workspace.add(hAxis);
     workspace.add(originDot);
@@ -60,6 +71,7 @@ export default function TestPage() {
     workspace.add(dot);
     // workspace.add(line2);
     workspace.add(vector1);
+    workspace.add(text);
     return (
         <div>
             <div className="h-[500px] bg-gray-50">

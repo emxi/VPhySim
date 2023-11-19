@@ -17,4 +17,8 @@
     .btn.btn-primary {
         @apply bg-primary-500 hover:bg-primary-600;
     }
+
+    text {
+        font-family: 'Latin Modern Math', sans-serif;
+    }
 }
