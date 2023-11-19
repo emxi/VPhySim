@@ -1,5 +1,7 @@
 export default class WorkSpace {
     _elements = [];
+    width = 0;
+    height = 0;
     constructor({ originX = 0, originY = 0, k = 100 }) {
         this.origin = { x: originX, y: originY };
         this.k = k;

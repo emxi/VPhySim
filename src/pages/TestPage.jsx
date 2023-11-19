@@ -4,30 +4,32 @@ import Dot from '../utils/graphics/elements/Dot';
 import Line from '../utils/graphics/elements/Line';
 import Vector from '../utils/graphics/elements/Vector';
 import useAnimation from '../utils/hooks/useAnimation';
+import HAxis from '../utils/graphics/elements/HAxis';
+import { useDimensions } from 'react-dimensions-hook';
+import degToRad from '../utils/degToRad';
+import GraphicWorkSpace from '../components/GraphicWorkSpace';
 
 export default function TestPage() {
     const [angle, setAngle] = useState(0);
 
     const [start, pause, stop, reset] = useAnimation(
         (time) => {
-            setAngle(() => time * 0.18);
+            setAngle(() => time * 0.06);
         },
-        5000,
+        undefined,
         () => {
             console.log('Stop by timeout');
         },
     );
 
-    function degrees_to_radians(degrees) {
-        var pi = Math.PI;
-        return degrees * (pi / 180);
-    }
+    const workspace = new WorkSpace({
+        w: 100,
+        h: 100,
+        k: 200,
+    });
 
-    const workspace = new WorkSpace({ w: 100, h: 100, k: 200 });
-    const dot = new Dot({ x: 1 * Math.cos(degrees_to_radians(angle)), y: 0, r: 8, color: 'red' });
-    const dot2 = new Dot({ x: 1, y: 0, r: 6, color: 'blue' });
-    const dot3 = new Dot({ x: 2, y: 0, color: 'blue' });
-    const line = new Line({ x1: 0, y1: 0, x2: 4, y2: 0 });
+    const dot = new Dot({ x: 1 * Math.cos(degToRad(angle)), y: 0, r: 8, color: 'red' });
+    const originDot = new Dot({ x: 0, y: 0, r: 4, color: 'green' });
     const vector1 = new Vector({
         x: 0,
         y: 0,
@@ -36,40 +38,32 @@ export default function TestPage() {
         color: 'green',
         angle: angle,
         buffStart: 4,
+        hidden: true,
     });
-    workspace.add(dot);
+    const dot2 = new Dot({
+        x: vector1.getEndPoint().x,
+        y: vector1.getEndPoint().y,
+        r: 6,
+        color: 'blue',
+    });
+    const line2 = new Line({
+        x1: dot.x,
+        y1: dot.y,
+        x2: vector1.getEndPoint().x,
+        y2: vector1.getEndPoint().y,
+    });
+
+    const hAxis = new HAxis({});
+    workspace.add(hAxis);
+    workspace.add(originDot);
     workspace.add(dot2);
-    workspace.add(dot3);
-    workspace.add(line);
     workspace.add(dot);
-    workspace.add(dot2);
-    workspace.add(dot3);
-    workspace.add(line);
-    workspace.add(dot);
-    workspace.add(dot2);
-    workspace.add(dot3);
-    workspace.add(line);
-    workspace.add(dot);
-    workspace.add(dot2);
-    workspace.add(dot3);
-    workspace.add(line);
-    workspace.add(dot);
-    workspace.add(dot2);
-    workspace.add(dot3);
-    workspace.add(line);
-    workspace.add(dot);
-    workspace.add(dot2);
-    workspace.add(dot3);
-    workspace.add(line);
-    workspace.add(dot);
-    workspace.add(dot2);
-    workspace.add(dot3);
-    workspace.add(line);
+    // workspace.add(line2);
     workspace.add(vector1);
     return (
         <div>
-            <div className="flex h-[500px] items-center justify-center bg-gray-50">
-                {workspace.render()}
+            <div className="h-[500px] bg-gray-50">
+                <GraphicWorkSpace workspace={workspace} />
             </div>
             <div className="space-x-2 p-6">
                 <button onClick={() => start()}>Run</button>

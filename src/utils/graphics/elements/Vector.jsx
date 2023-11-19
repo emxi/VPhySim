@@ -1,3 +1,4 @@
+import degToRad from '../../degToRad';
 import WorkSpace from '../WorkSpace';
 import getAbsolutePosition from '../utils/getAbsolutePosition';
 
@@ -80,6 +81,15 @@ export default class Vector {
                 </svg>
             </g>
         );
+    }
+
+    getEndPoint() {
+        const endPoint = {
+            x: this.x + this.length * Math.cos(degToRad(-this.angle)),
+            y: this.y + this.length * Math.sin(degToRad(this.angle)),
+        };
+
+        return endPoint;
     }
 
     clone() {

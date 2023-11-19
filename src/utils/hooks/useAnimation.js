@@ -53,10 +53,7 @@ export default function useAnimation(callback, duration = Infinity, onTimeout) {
     }
 
     useEffect(() => {
-        return () => {
-            stopAnimation();
-            console.log('unmounted');
-        };
+        return () => stopAnimation();
     }, []);
 
     return [startAnimation, pauseAnimation, stopAnimation, reset];
