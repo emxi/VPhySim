@@ -11,6 +11,10 @@ export default class WorkSpace {
         this._elements.push(elem);
     }
 
+    beforeRender() {
+        console.log('onDimensionsChange');
+    }
+
     render() {
         return (
             <svg

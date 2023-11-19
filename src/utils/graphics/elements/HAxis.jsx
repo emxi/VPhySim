@@ -64,6 +64,12 @@ export default class HAxis {
         );
     }
 
+    getEndPoint(workspace = new WorkSpace({})) {
+        const absoluteEndPointX = 0.5 * workspace.width - this.mEnd;
+        const relativeEndPointX = (absoluteEndPointX - workspace.origin.x) / workspace.k;
+        return { x: relativeEndPointX, y: this.y };
+    }
+
     clone() {
         return new HAxis({
             y: this.y,

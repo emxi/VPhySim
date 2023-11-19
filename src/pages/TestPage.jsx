@@ -24,8 +24,6 @@ export default function TestPage() {
     );
 
     const workspace = new WorkSpace({
-        w: 100,
-        h: 100,
         k: 200,
     });
 
@@ -65,6 +63,11 @@ export default function TestPage() {
     });
 
     const hAxis = new HAxis({});
+    const xLabel = new Text({
+        content: 'x',
+        placementY: 'top',
+        placementX: 'right',
+    });
     workspace.add(hAxis);
     workspace.add(originDot);
     workspace.add(dot2);
@@ -72,6 +75,12 @@ export default function TestPage() {
     // workspace.add(line2);
     workspace.add(vector1);
     workspace.add(text);
+    workspace.add(xLabel);
+    workspace.beforeRender = () => {
+        xLabel.x = hAxis.getEndPoint(workspace).x;
+        xLabel.y = hAxis.getEndPoint(workspace).y;
+    };
+
     return (
         <div>
             <div className="h-[500px] bg-gray-50">
